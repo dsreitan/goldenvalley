@@ -1,0 +1,3 @@
+{
+  "query": "*[_type == 'activity' || _type == 'learningModule' || _type == 'topic' || _type == 'learningPath' || _type == 'productVariant' || _type == 'productGroup']"
+}
