@@ -1,5 +1,5 @@
 <template>
-  <ul>
+  <ul class="product-groups">
     <li v-for="(productGroup, i) in productGroups" :key="i">
       {{ productGroup.title }}
       <ul>
@@ -45,3 +45,13 @@ export default {
   },
 };
 </script>
+<style scoped>
+.product-groups {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  height: 70vw;
+  max-width: 70vw;
+  margin: auto;
+}
+</style>

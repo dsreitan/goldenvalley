@@ -14,7 +14,6 @@ const routes = [
     name: "LearningPath",
     component: LearningPath,
     props: (route) => ({
-      learningPathId: route.params.learningPathId,
       learningPathSlug: route.params.learningPathSlug,
     }),
   },
@@ -23,9 +22,7 @@ const routes = [
     name: "LearningPathTopic",
     component: LearningPath,
     props: (route) => ({
-      learningPathId: route.params.learningPathId,
       learningPathSlug: route.params.learningPathSlug,
-      topicId: route.params.topicId,
       topicSlug: route.params.topicSlug,
     }),
   },
@@ -34,24 +31,18 @@ const routes = [
     name: "LearningModule",
     component: LearningModule,
     props: (route) => ({
-      learningPathId: route.params.learningPathId,
       learningPathSlug: route.params.learningPathSlug,
-      topicId: route.params.topicId,
       topicSlug: route.params.topicSlug,
-      learningModuleId: route.params.learningModuleId,
       learningModuleSlug: route.params.learningModuleSlug,
     }),
   },
   {
-    path: "/:learningPathSlug/:topicSlug/:learningModuleId/:learningModuleSlug",
+    path: "/:learningPathSlug/:topicSlug/:learningModuleSlug/:activitySlug",
     name: "LearningModuleActivity",
     component: LearningModule,
     props: (route) => ({
-      learningPathId: route.params.learningPathId,
       learningPathSlug: route.params.learningPathSlug,
-      topicId: route.params.topicId,
       topicSlug: route.params.topicSlug,
-      learningModuleId: route.params.learningModuleId,
       learningModuleSlug: route.params.learningModuleSlug,
       activitySlug: route.params.activitySlug,
     }),

@@ -3,23 +3,26 @@
     Tilbake
   </router-link>
 
-  <div v-if="learningModule">
-    {{ learningModule.title }}
-    <ul>
-      <li v-for="(activity, i) in learningModule.activities" :key="i">
-        <router-link
-          :to="
-            `/${learningPathSlug}/${topicSlug}/${learningModuleSlug}/${activity.slug.current}`
-          "
-        >
-          {{ activity.title }}
-          {{ activity._id === currentActivity?._id ? "(valgt)" : null }}
-        </router-link>
-      </li>
-    </ul>
-
-    <div v-if="currentActivity">
+  <div v-if="learningModule" class="learning-module">
+    <div v-if="currentActivity" class="learning-module-main">
       {{ currentActivity.title }}
+    </div>
+
+    <div>
+      {{ learningModule.title }}
+      <br />
+      <ul>
+        <li v-for="(activity, i) in learningModule.activities" :key="i">
+          <router-link
+            :to="
+              `/${learningPathSlug}/${topicSlug}/${learningModuleSlug}/${activity.slug.current}`
+            "
+          >
+            {{ activity.title }}
+            {{ activity._id === currentActivity?._id ? "(valgt)" : null }}
+          </router-link>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -32,13 +35,9 @@ export default {
     return { learningModule: null, error: null };
   },
   props: {
-    learningPathId: "",
     learningPathSlug: "",
-    topicId: "",
     topicSlug: "",
-    learningModuleId: "",
     learningModuleSlug: "",
-    activityId: "",
     activitySlug: "",
   },
   computed: {
@@ -66,3 +65,16 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.learning-module {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  height: 50vw;
+  align-items: center;
+}
+
+.learning-module-main {
+  text-align: center;
+}
+</style>

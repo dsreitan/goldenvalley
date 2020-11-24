@@ -3,8 +3,7 @@
     Tilbake
   </router-link>
 
-  <div v-if="learningPath">
-    {{ learningPath.title }}
+  <div v-if="learningPath" class="learning-path">
     <ul>
       <li v-for="(topic, i) in learningPath.topics" :key="i">
         <router-link
@@ -16,7 +15,11 @@
       </li>
     </ul>
 
-    <div v-if="currentTopic">
+    <header>
+      {{ learningPath.title }}
+    </header>
+
+    <div v-if="currentTopic" class="learning-path-main">
       <ul>
         <li
           v-for="(learningModule, i) in currentTopic.learningModules"
@@ -43,9 +46,7 @@ export default {
     return { learningPath: null, error: null };
   },
   props: {
-    learningPathId: "",
     learningPathSlug: "",
-    topicId: "",
     topicSlug: "",
   },
   computed: {
@@ -70,3 +71,24 @@ export default {
   },
 };
 </script>
+<style scoped>
+.learning-path {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  height: 50vw;
+  align-items: center;
+}
+
+.learning-path header {
+  text-align: center;
+}
+
+.learning-path-main {
+  grid-column: 2 / -1;
+}
+
+.learning-path-main ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+</style>
