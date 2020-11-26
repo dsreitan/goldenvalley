@@ -4,19 +4,19 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "npx vue-cli-service build",
+    "build": "vue-cli-service build",
     "start": "npm run serve"
   },
   "dependencies": {
     "@sanity/client": "^2.0.9",
-    "core-js": "^3.6.5",
+    "core-js": "^3.8.0",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-router": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.0.0"
+    "@vue/cli-plugin-babel": "~4.5.9",
+    "@vue/cli-plugin-router": "~4.5.9",
+    "@vue/cli-service": "~4.5.9",
+    "@vue/compiler-sfc": "^3.0.3"
   }
 }
